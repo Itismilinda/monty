@@ -1,45 +1,24 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-#include <ctype.h>
-
 /**
- * f_push - add node to the stack
- * @head: stack head
- * @counter: line_number
- * Return: no return
+* pushnode - pushes a node to the top of the stack in a linked list
+* @head: the pointer to the hea node
+* @value: the dataa to be pushed onto the stack
+* Return: no return
 */
-void f_push(stack_t **head, unsigned int counter)
+void pushnode(stack_t **head, int value)
 {
-	int n, j = 0, flag = 0;
-
-	if (bus.arg)
-	{
-		if (bus.arg[0] == '-')
-			j++;
-		for (; bus.arg[j] != '\0'; j++)
-		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
-				flag = 1; }
-		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-			fclose(bus.file);
-			free(bus.content);
-			free_stack(*head);
-			exit(EXIT_FAILURE); }}
-	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
-		exit(EXIT_FAILURE); }
-	n = atoi(bus.arg);
-	if (bus.lifi == 0)
-		addnode(head, n);
-	else
-		addqueue(head, n);
+stack_t *new_node, *curr;
+curr = *head;
+new_node = malloc(sizeof(stack_t));
+if (new_node == NULL)
+{
+fprintf(stderr, "Error: malloc failed\n");
+exit(EXIT_FAILURE);
+}
+if (curr)
+curr->prev = new_node;
+new_node->n = value;
+new_node->next = *head;
+new_node->prev = NULL;
+*head = new_node;
 }
