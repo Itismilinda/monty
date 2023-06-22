@@ -1,5 +1,12 @@
 #include "monty.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdio.h>
 /**
  * f_pchar - prints the char at the top of the stack,
  * followed by a new line

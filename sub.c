@@ -1,4 +1,11 @@
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
   *f_sub- sustration
@@ -12,9 +19,9 @@ void f_sub(stack_t **head, unsigned int counter)
 	int sus, node;
 
 	aux = *head;
-	for (nodes = 0; aux != NULL; nodes++)
+	for (node = 0; aux != NULL; node++)
 		aux = aux->next;
-	if (nodes < 2)
+	if (node < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
 		fclose(bus.file);

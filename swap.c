@@ -1,4 +1,11 @@
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * f_swap - add top two elements of the stack.
@@ -23,7 +30,6 @@ void f_swap(stack_t **head, unsigned int counter)
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE);
 	}
 	h = *head;
 	aux = h->n;
