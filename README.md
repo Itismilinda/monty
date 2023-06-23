@@ -1,11 +1,6 @@
 0x19. C - Stacks, Queues - LIFO, FIFO
-
-Compilation & Output
-Your code will be compiled this way:
-$ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
-
+	
 Purpose of the README FILE: The goal of this README, is to take you through what each assigned task is about and what propelled the generation of this codes
-
 
 Assigned Tasks
 0. push, pall
